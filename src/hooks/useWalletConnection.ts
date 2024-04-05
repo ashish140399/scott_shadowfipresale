@@ -1,7 +1,7 @@
 import { useWeb3React } from "@web3-react/core";
 import { toast } from "react-toastify";
 import { NETWORK_NAME, TAG_PROVIDER } from "../libs/constants";
-import WalletConnectProvider from "@walletconnect/web3-provider";
+import { METAMASK, WALLETCONNECT } from "../libs/connectors";
 
 const useWalletConnection = () => {
   const { active, account, chainId, library, activate, deactivate } =
@@ -13,21 +13,19 @@ const useWalletConnection = () => {
     window.localStorage.clear();
     window.localStorage.setItem(TAG_PROVIDER, wallet.title);
     
-    const provider = new WalletConnectProvider();
+    const provider = wallet === METAMASK ? METAMASK : WALLETCONNECT;
 
     try {
-      await provider.enable();
-      activate(provider, (error: Error) => {
-        if (error && error.message.includes("Unsupported chain id")) {
-          toast.info(`Please change network to ${NETWORK_NAME}.`);
-        }
-      });
+      await activate(provider, undefined, true);
       if (callBack) {
         callBack();
       }
     } catch (error) {
       console.error("Failed to connect:", error);
-      // Handle error
+      if (error && error.message.includes("Unsupported chain id")) {
+        toast.info(`Please change network to ${NETWORK_NAME}.`);
+      }
+      // Handle other errors
     }
   };
 
