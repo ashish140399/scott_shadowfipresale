@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Montserrat', sans-serif;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  color: #fff !important;
+}
+
+.MuiButton-root{
+  border-radius: 10px !important;
+  padding: 8px 40px !important;
+filter: drop-shadow(0px 7px 10px rgba(74,130,243,0.15));
+background-image: linear-gradient(25deg, #4981f3 0%, #39bdeb 100%) !important;
+font-weight: 500 !important;
+letter-spacing: 2px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.MuiTooltip-tooltip {
+  background: #111b34 !important;
+  animation: fadein 3s ease-in alternate;
+  animation-fill-mode: forwards;
+}
+.MuiTooltip-arrow{
+  color: #111b34 !important;
+}
+
+.siteLogo{
+  height: 70px;
+  margin-bottom: 38px;
+  @media screen and (max-width: 768px) {
+    height: 50px;
+  }
+}
+
+.ant-select-dropdown {
+  background-color: #111b34 !important;
+  border-radius: 8px !important;
+  .ant-select-item-option {
+    background-color: #111b34 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    &:hover{
+      background-color: #39bdeb !important;
+    }
+    img {
+      margin-right: 6px;
+    }
+  }
+}
+
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
