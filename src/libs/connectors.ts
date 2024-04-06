@@ -10,5 +10,5 @@ export const WALLETCONNECT = new WalletConnectConnector({
   // @ts-ignore
   rpcUrl: `https://mainnet.infura.io/v3/${BSC_INFURA_KEY}`,
   bridge: "https://bridge.walletconnect.org",
-  qrcode: true,
+  // qrcode: true,
 });
