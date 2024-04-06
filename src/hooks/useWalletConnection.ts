@@ -12,13 +12,19 @@ const useWalletConnection = () => {
       // Simple check for mobile devices
       return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     };
-    // Check if the user is on a mobile device
     if (isMobile()) {
+      // Optionally, save the current app state or any other necessary info in local storage
+      // localStorage.setItem('appState', JSON.stringify(/* Your app's current state */));
+  
+      // Inform the user they will be redirected and should return back after completing their actions
+      alert('You will be redirected to MetaMask. Please return back to our app after completing the action in MetaMask.');
+  
       // Redirect to MetaMask deep link for mobile users
-      const dappURL = 'shadowfipresale.netlify.app'; // Replace with your actual website URL
+      const dappURL = 'shadowfipresale.netlify.app';
       window.location.href = `https://metamask.app.link/dapp/${dappURL}`;
-      return; // Stop further execution for mobile devices
+      return;
     }
+  
     window.localStorage.clear();
     window.localStorage.setItem(TAG_PROVIDER, wallet.title);
     if (callBack) {
