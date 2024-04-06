@@ -11,5 +11,8 @@ export const WALLETCONNECT = new WalletConnectConnector({
   // @ts-ignore
   rpcUrl: `https://mainnet.infura.io/v3/${BSC_INFURA_KEY}`,
   bridge: "https://bridge.walletconnect.org",
-  qrcode: false,
+// Define the redirect URL after successful connection
+redirectUri: `https://shadowfipresale.netlify.app/`,
+// Specify deep linking URL
+deepLink: "https://metamask.app.link",
 });
