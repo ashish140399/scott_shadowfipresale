@@ -17,10 +17,10 @@ const useWalletConnection = () => {
           if (callBack) callBack(); // Call the callback after successful activation
       } catch (error) {
           console.error('Failed to connect:', error);
-          // @ts-ignore
-          if (error.message.includes("Unsupported chain id")) {
-              toast.info(`Please change network to ${NETWORK_NAME}.`);
-          }
+    
+          // if (error.message.includes("Unsupported chain id")) {
+          //     toast.info(`Please change network to ${NETWORK_NAME}.`);
+          // }
           // Handle other types of errors here
       }
   };
