@@ -2,7 +2,7 @@ import { InjectedConnector } from "@web3-react/injected-connector";
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { BSC_INFURA_KEY } from "./constants";
 
-export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42,56] });
+// export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42,56] });
 export const METAMASK = new InjectedConnector({
   supportedChainIds: [56],
 });
