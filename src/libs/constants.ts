@@ -1,16 +1,16 @@
-import { METAMASK, WALLETCONNECT } from "./connectors";
+import { METAMASK, WALLETCONNECT, injected } from "./connectors";
 
 export const TAG_PROVIDER = "PROVIDER";
 
 export const WALLETS = [
   {
     title: "Metamask",
-    connector: METAMASK,
+    connector: injected,
     icon: "/wallets/icon-metamask.png",
   },
   {
     title: "Wallet Connect",
-    connector: WALLETCONNECT,
+    connector: injected,
     icon: "/wallets/icon-walletconnect.png",
   },
 ];
