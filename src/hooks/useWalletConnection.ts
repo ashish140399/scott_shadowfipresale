@@ -6,25 +6,20 @@ const useWalletConnection = () => {
   const { active, account, chainId, library, activate, deactivate } =
     useWeb3React();
 
-    const connectWallet = async (wallet:any,callBack:any) => {
-      if (!window) return;
-  
-      window.localStorage.clear();
-      window.localStorage.setItem(TAG_PROVIDER, wallet.title);
-  
-      try {
-          await activate(wallet.connector);
-          if (callBack) callBack(); // Call the callback after successful activation
-      } catch (error:any) {
-          console.error('Failed to connect:', error);
-    
-          if (error.message.includes("Unsupported chain id")) {
-              toast.info(`Please change network to ${NETWORK_NAME}.`);
-          }
-          // Handle other types of errors here
+  const connectWallet = (wallet: any, callBack: any) => {
+    if (!window) return;
+
+    window.localStorage.clear();
+    window.localStorage.setItem(TAG_PROVIDER, wallet.title);
+    if (callBack) {
+      callBack();
+    }
+    activate(wallet.connector, (error: Error) => {
+      if (error.message.includes("Unsupported chain id")) {
+        toast.info(`Please change network to ${NETWORK_NAME}.`);
       }
+    });
   };
-  
 
   const disconnectWallet = (callBack: any) => {
     window.localStorage.clear();
