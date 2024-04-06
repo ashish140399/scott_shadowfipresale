@@ -22,7 +22,7 @@ const useWalletConnection = () => {
       // Redirect to MetaMask deep link for mobile users
       const dappURL = 'shadowfipresale.netlify.app';
       window.location.href = `https://metamask.app.link/dapp/${dappURL}`;
-      return;
+      return { active, account, chainId, library, connectWallet, disconnectWallet };
     }
   
     window.localStorage.clear();
