@@ -344,17 +344,17 @@ const Landing: React.FC<Props> = (props) => {
     }
   };
 
-  useEffect(() => {
-    const provider = window.localStorage.getItem(TAG_PROVIDER);
-    if (provider) {
-      for (let wallet of WALLETS) {
-        if (provider === wallet.title) {
-          connectWallet(wallet, null);
-          break;
-        }
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const provider = window.localStorage.getItem(TAG_PROVIDER);
+  //   if (provider) {
+  //     for (let wallet of WALLETS) {
+  //       if (provider === wallet.title) {
+  //         connectWallet(wallet, null);
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (active) {
